@@ -1,4 +1,4 @@
-package com.elearning.AssigmentOperator;
+package com.elearning.chapter2.assigmentoperator;
 
 public class CMyString {
     private char[] m_pData;
