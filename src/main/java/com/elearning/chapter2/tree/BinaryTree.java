@@ -17,12 +17,17 @@ public class BinaryTree {
         BinaryTreeNode root = new BinaryTreeNode(rootValue,null,null);
 
         //在中序遍历序列中找到根节点的位置
-        int rootIndexInInOrders = 0;
+        int rootIndexInInOrders = -1;
         for(int i=0;i<inOrders.length;i++){
             if(inOrders[i]==rootValue){
                 rootIndexInInOrders = i;
                 break;
             }
+        }
+        //防止输入的遍历数组不一致
+        if(rootIndexInInOrders == -1){
+            System.out.println("输入的前序和中序遍历数组不一致,遍历中断");
+            return null;
         }
         //设置左子树递归
         int leftLength = rootIndexInInOrders;
@@ -53,8 +58,8 @@ public class BinaryTree {
 
     public static void main(String[] args) {
         BinaryTree binaryTree = new BinaryTree();
-        int[] preOrders = {1,2,4,7,3,5,6,8};
-        int[] inOrders = {4,7,2,1,5,3,8,6};
+        int[] preOrders = {1,2,4,7,3,5,6,9};
+        int[] inOrders = {4,7,1,5,3,8,6};
         BinaryTreeNode root = binaryTree.constructBinaryTree(preOrders, inOrders);
         binaryTree.postorderTraversal(root);
     }
