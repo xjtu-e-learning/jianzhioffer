@@ -1,4 +1,4 @@
-package com.elearning.chapter2.assigmentoperator;
+package com.elearning.chapter2.interviewquestion1_assigmentoperator;
 
 public class CMyString {
     private char[] m_pData;

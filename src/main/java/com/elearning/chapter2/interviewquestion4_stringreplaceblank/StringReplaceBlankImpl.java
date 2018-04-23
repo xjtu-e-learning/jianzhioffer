@@ -1,4 +1,4 @@
-package com.elearning.chapter2.stringreplaceblank;
+package com.elearning.chapter2.interviewquestion4_stringreplaceblank;
 
 public class StringReplaceBlankImpl {
 

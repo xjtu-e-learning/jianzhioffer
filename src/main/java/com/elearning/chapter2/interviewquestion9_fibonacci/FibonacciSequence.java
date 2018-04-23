@@ -1,9 +1,11 @@
-package com.elearning.chapter2.fibonacci;
+package com.elearning.chapter2.interviewquestion9_fibonacci;
 
 /**
  * 面试题9：斐波那契数列
  * 分别用递归和循环方法实现
  * 递归会存在重复计算而导致时间开销指数级增长，所以不推荐
+ * @author yangkuan
+ * @date 2018/04/01 21:15
  */
 public class FibonacciSequence {
     /**

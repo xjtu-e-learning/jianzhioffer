@@ -1,4 +1,4 @@
-package com.elearning.chapter2.singleton;
+package com.elearning.chapter2.interviewquestion2_singleton;
 
 public class SingletonImpl {
     private SingletonImpl(){

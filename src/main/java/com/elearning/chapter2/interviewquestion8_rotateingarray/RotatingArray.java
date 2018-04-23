@@ -1,6 +1,4 @@
-package com.elearning.chapter2.rotateingarray;
-
-import org.omg.Messaging.SYNC_WITH_TRANSPORT;
+package com.elearning.chapter2.interviewquestion8_rotateingarray;
 
 /**
  * 面试题8：旋转数组的最小数字

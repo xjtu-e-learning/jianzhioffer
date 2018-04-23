@@ -1,6 +1,4 @@
-package com.elearning.chapter2.tree;
-
-import java.util.Arrays;
+package com.elearning.chapter2.interviewquestion6_tree;
 
 public class BinaryTree {
     /**

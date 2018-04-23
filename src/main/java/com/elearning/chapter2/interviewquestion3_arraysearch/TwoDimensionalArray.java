@@ -1,5 +1,9 @@
-package com.elearning.chapter2.arraysearch;
+package com.elearning.chapter2.interviewquestion3_arraysearch;
 
+/**
+ * 面试题3：二维数组中的查找
+ * @author yangkuan
+ */
 public class TwoDimensionalArray {
     /**
      * 在一个二维数组中，每一行都从左到右递增，每一列都从上到下递增

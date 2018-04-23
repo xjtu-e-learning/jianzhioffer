@@ -1,4 +1,4 @@
-package com.elearning.chapter2.tree;
+package com.elearning.chapter2.interviewquestion6_tree;
 
 public class BinaryTreeNode {
     public int value;

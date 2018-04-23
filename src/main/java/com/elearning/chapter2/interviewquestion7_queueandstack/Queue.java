@@ -1,4 +1,4 @@
-package com.elearning.chapter2.queueandstack;
+package com.elearning.chapter2.interviewquestion7_queueandstack;
 
 import java.util.Stack;
 

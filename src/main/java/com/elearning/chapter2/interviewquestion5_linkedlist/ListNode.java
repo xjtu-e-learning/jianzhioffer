@@ -1,4 +1,4 @@
-package com.elearning.chapter2.linkedlist;
+package com.elearning.chapter2.interviewquestion5_linkedlist;
 
 public class ListNode {
     private int value;
