@@ -38,10 +38,25 @@ public class StringReplaceBlankImpl {
         }
         return extendedChars;
     }
+    public static String replaceSpace(StringBuffer str) {
+        int size = str.length();
+        String replacedStr = new String();
+        for(int i=0;i<size;i++){
+            if(str.charAt(i)==' '){
+                replacedStr += "%20";
+            }
+            else {
+                replacedStr += str.charAt(i);
+            }
+        }
+        return replacedStr;
+    }
 
     public static void main(String[] args) {
         char[] chars = {'h','k','l',' ','m','n'};
         System.out.println(replaceBlank(chars));
+        StringBuffer str = new StringBuffer("hello world");
+        System.out.println(replaceSpace(str));
     }
 
 }

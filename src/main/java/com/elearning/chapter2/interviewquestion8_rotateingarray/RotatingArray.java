@@ -45,11 +45,44 @@ public class RotatingArray {
         return numbers[midIndex];
     }
 
+    public int minNumberInRotateArray(int [] array) {
+        //二分查找
+        //首先判断数组是否为空
+        if(array.length==0||array==null){
+            //相应处理
+        }
+        int left = 0;
+        int right = array.length-1;
+        int mid = array.length/2;
+        while ((right-left)>1){
+            //如果三者相等，只能遍历
+            if(array[mid]==array[right]&&array[mid]==array[left]){
+                int min = array[left];
+                for(int i= left+1;i<right;i++){
+                    if(min>array[i]){
+                        min = array[i];
+                    }
+                }
+                return min;
+            }
+            else if(array[mid] >= array[left]){
+                left = mid;
+            }
+            else if(array[mid] <= array[right]){
+                right = mid;
+            }
+            //偏向右边
+            mid = (left+right+1)/2;
+        }
+        return array[mid];
+    }
+
     public static void main(String[] args) throws Exception {
         RotatingArray rotatingArray = new RotatingArray();
-        int[] numbers = {3,4,5,1,2};
+        int[] numbers = {3,3,3,1,3};
         int min = rotatingArray.findMin(numbers);
         System.out.println(min);
+        System.out.println(rotatingArray.minNumberInRotateArray(numbers));
     }
 
 }

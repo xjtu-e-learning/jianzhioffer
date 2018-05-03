@@ -1,5 +1,6 @@
 package com.elearning.chapter2.interviewquestion5_linkedlist;
 
+import java.util.ArrayList;
 import java.util.Stack;
 
 public class LinkListImpl {
@@ -18,6 +19,19 @@ public class LinkListImpl {
         while (!stack.empty()){
             System.out.println(stack.pop().getValue());
         }
+    }
+    public ArrayList<Integer> printListFromTailToHead(ListNode listNode) {
+        //遍历链表，把元素放入栈中
+        Stack<ListNode> stack = new Stack<ListNode>();
+        while (listNode !=null){
+            stack.push(listNode);
+            listNode = listNode.next;
+        }
+        ArrayList<Integer> result = new ArrayList<Integer>();
+        while (!stack.empty()){
+            result.add(stack.pop().val);
+        }
+        return result;
     }
 
     public static void main(String[] args) {

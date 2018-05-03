@@ -35,6 +35,53 @@ public class FibonacciSequence {
         }
         return fibonacciValue;
     }
+    //青蛙跳1或2级
+    public int JumpFloor(int target) {
+        if(target==0){
+            return 0;
+        }
+        int value = 1;
+        int lastValue = 1;
+        int i = 1;
+        while(i<target){
+            int tmp = value;
+            value = value + lastValue;
+            lastValue = tmp;
+            i ++;
+        }
+        return value;
+    }
+    //青蛙跳1,2,3，....,n级
+    public int JumpFloorII(int target) {
+        // 2^(target-1)
+        int result = 1;
+        for(int i=1;i<target;i++){
+            result = result*2;
+        }
+        return result;
+    }
+
+    /**
+     * 我们可以用2*1的小矩形横着或者竖着去覆盖更大的矩形。
+     * 请问用n个2*1的小矩形无重叠地覆盖一个2*n的大矩形，总共有多少种方法？
+     * @param target
+     * @return
+     */
+    public int RectCover(int target) {
+        if(target==0){
+            return 0;
+        }
+        int value = 1;
+        int lastValue = 1;
+        int i = 1;
+        while(i<target){
+            int tmp = value;
+            value = value + lastValue;
+            lastValue = tmp;
+            i ++;
+        }
+        return value;
+    }
 
     public static void main(String[] args) {
         FibonacciSequence fibonacciSequence = new FibonacciSequence();

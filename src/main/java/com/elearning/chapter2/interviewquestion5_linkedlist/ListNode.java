@@ -1,20 +1,24 @@
 package com.elearning.chapter2.interviewquestion5_linkedlist;
 
 public class ListNode {
-    private int value;
-    private ListNode next;
+    int val;
+    ListNode next;
 
     public ListNode(int value, ListNode next) {
-        this.value = value;
+        this.val = value;
         this.next = next;
     }
 
+    ListNode(int val) {
+        this.val = val;
+    }
+
     public int getValue() {
-        return value;
+        return val;
     }
 
     public void setValue(int value) {
-        this.value = value;
+        this.val = value;
     }
 
     public ListNode getNext() {
