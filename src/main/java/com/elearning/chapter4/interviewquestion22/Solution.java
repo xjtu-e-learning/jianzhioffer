@@ -1,4 +1,4 @@
-package src.main.java.com.elearning.chapter4.interviewquestion22;
+package com.elearning.chapter4.interviewquestion22;
 
 import java.util.Stack;
 
@@ -19,7 +19,7 @@ public class Solution {
         }
         int i=0;
         int j = 0;
-        Stack<Integer> stack = new Stack<>();
+        Stack<Integer> stack = new Stack<Integer>();
         //先将压入序列一直压入栈，如果某一次压入元素等于弹出序列元素，那么弹出
         while (i<pushA.length&&j<popA.length){
             stack.push(pushA[i]);

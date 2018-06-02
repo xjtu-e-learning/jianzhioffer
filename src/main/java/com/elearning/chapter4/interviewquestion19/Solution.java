@@ -1,8 +1,6 @@
-package src.main.java.com.elearning.chapter4.interviewquestion19;
+package com.elearning.chapter4.interviewquestion19;
 
-import sun.reflect.generics.tree.Tree;
 
-import java.util.FormatFlagsConversionMismatchException;
 
 /**
  * 面试题19：二叉树的镜像
