@@ -1,4 +1,4 @@
-package src.main.java.com.elearning.chapter4.interviewquestion21;
+package com.elearning.chapter4.interviewquestion21;
 
 import java.util.Stack;
 
@@ -12,11 +12,11 @@ public class Solution {
     /**
      * 数据栈
      */
-    Stack<Integer>  dataStack = new Stack<>();
+    Stack<Integer>  dataStack = new Stack<Integer>();
     /**
      * 最小数据栈
      */
-    Stack<Integer> minStack = new Stack<>();
+    Stack<Integer> minStack = new Stack<Integer>();
 
     public void push(int node) {
         dataStack.push(node);
