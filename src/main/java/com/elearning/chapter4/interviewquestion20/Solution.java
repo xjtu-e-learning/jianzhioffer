@@ -1,4 +1,4 @@
-package src.main.java.com.elearning.chapter4.interviewquestion20;
+package com.elearning.chapter4.interviewquestion20;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
@@ -15,7 +15,7 @@ public class Solution {
         if(matrix==null){
             return null;
         }
-        ArrayList<Integer> result = new ArrayList<>();
+        ArrayList<Integer> result = new ArrayList<Integer>();
         int start = 0;
         int row = matrix.length;
         int col = matrix[0].length;
@@ -26,7 +26,7 @@ public class Solution {
         return result;
     }
     public ArrayList<Integer> printMatrixByCircle(int[][] matrix, int start){
-        ArrayList<Integer> result = new ArrayList<>();
+        ArrayList<Integer> result = new ArrayList<Integer>();
         int endX = matrix.length-1-start;
         int endY = matrix[0].length-1-start;
         int indexX = start;
