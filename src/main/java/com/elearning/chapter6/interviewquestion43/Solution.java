@@ -4,6 +4,7 @@ package com.elearning.chapter6.interviewquestion43;
  * 面试题43：n个骰子的点数
  * 把n个骰子扔在地上，所有骰子朝上的一面点数之和为s。
  * 输入n，打印出s的所有可能的值出现的概率。
+ * @author yangkuan 
  */
 public class Solution {
     int value = 6;
