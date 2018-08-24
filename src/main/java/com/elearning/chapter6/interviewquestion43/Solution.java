@@ -4,7 +4,7 @@ package com.elearning.chapter6.interviewquestion43;
  * 面试题43：n个骰子的点数
  * 把n个骰子扔在地上，所有骰子朝上的一面点数之和为s。
  * 输入n，打印出s的所有可能的值出现的概率。
- * @author yangkuan 
+ * @author yangkuan
  */
 public class Solution {
     int value = 6;
@@ -14,6 +14,9 @@ public class Solution {
      * @param number
      */
     public void PrintProbabilityFirstMethod(int number){
+        if(number==0){
+            return;
+        }
         int maxValue = number*value;
         int len =  maxValue-number+1;
         int[] cnts = new int[len];
@@ -29,6 +32,9 @@ public class Solution {
      * @param number
      */
     public void PrintProbabilitySecondMethod(int number){
+        if(number==0){
+            return;
+        }
         int maxValue = number*value;
         int len =  maxValue;
         int[] lastCnts = new int[len];
@@ -39,11 +45,12 @@ public class Solution {
         }
         //一个骰子
         for(int i=0;i<value;i++){
+            currentCnts[i]++;
             lastCnts[i]++;
         }
         //增加骰子
         for(int i=1;i<number;i++){
-            for(int j=0;j<maxValue;j++){
+            for(int j=1;j<maxValue;j++){
                 if(j>=value){
                     int s = 0;
                     for(int k=j-value;k<=j-1;k++){
