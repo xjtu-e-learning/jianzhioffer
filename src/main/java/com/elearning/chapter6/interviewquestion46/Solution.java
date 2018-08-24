@@ -12,9 +12,8 @@ public class Solution {
      * @return
      */
     public int Sum_Solution(int n) {
-        if(n==0){
-            return 0;
-        }
-        return n+Sum_Solution(n-1);
+        int ans = n;
+        boolean flag = ans>0 && ((ans += Sum_Solution(n-1))>0);
+        return ans;
     }
 }
