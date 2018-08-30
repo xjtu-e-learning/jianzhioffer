@@ -1,6 +1,9 @@
 package com.elearning.niuke.interviewquestion62;
 
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * 面试题62：序列化二叉树
  * 请实现两个函数，分别用来序列化和反序列化二叉树
@@ -63,6 +66,12 @@ public class Solution {
     }
 
     public static void main(String[] args) {
-        new Solution().test();
+        //new Solution().test();
+        List<Integer> list = new ArrayList<>();
+        list.add(1);
+        list.add(2);
+        list.add(3);
+        list.add(4);
+        System.out.println(list.subList(0,2));
     }
 }
