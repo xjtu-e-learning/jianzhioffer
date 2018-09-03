@@ -1,5 +1,7 @@
 package com.elearning.algorithm;
 
+import com.sun.media.sound.RIFFInvalidDataException;
+
 import java.util.List;
 
 /**
@@ -141,11 +143,42 @@ public class Sort {
     }
 
     /**
-     * 堆排序
+     * 快速排序
      * @param list
      */
-    public void quickSort(List<Integer> list){
+    public void quickSort(int[] list){
+        if(list==null||list.length==0){
+            return;
+        }
+        quickSortCore(list,0,list.length-1);
+    }
 
+    /**
+     *
+     * @param list
+     * @param startIndex
+     * @param endIndex
+     */
+    private void quickSortCore(int[] list,int startIndex,int endIndex){
+        if(startIndex>=endIndex){
+            return;
+        }
+        int left = startIndex;
+        int right = endIndex;
+        while (left<right){
+            while (left<right&&list[left]<=list[endIndex]){
+                left++;
+            }
+            while (right>left&&list[right]>=list[endIndex]){
+                right--;
+            }
+            if(left<right){
+                swap(list,left,right);
+            }
+        }
+        swap(list,endIndex,left);
+        quickSortCore(list,startIndex,left-1);
+        quickSortCore(list,left+1,endIndex);
     }
 
     /**
@@ -212,5 +245,10 @@ public class Sort {
         sort.heapSort(list4);
         System.out.print("堆排序：");
         sort.print(list4);
+
+        int[] list5 = {2,4,6,8,2,3,5,1};
+        sort.quickSort(list5);
+        System.out.print("快速排序：");
+        sort.print(list5);
     }
 }
