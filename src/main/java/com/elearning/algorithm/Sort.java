@@ -48,10 +48,8 @@ public class Sort {
         int len = list.length;
         for(int i=1;i<len;i++){
             int index = i;
-            while (index>0){
-                if(list[index]<list[index-1]){
-                    swap(list,index,index-1);
-                }
+            while (index>0&&list[index]<list[index-1]){
+                swap(list,index,index-1);
                 index--;
             }
         }
@@ -81,16 +79,65 @@ public class Sort {
      * 希尔排序
      * @param list
      */
-    public void shellSort(List<Integer> list){
-
+    public void shellSort(int[] list){
+        if(list==null||list.length==0){
+            return;
+        }
+        int len = list.length;
+        int gap = 1;
+        while (gap<len/3){
+            gap = 3*gap+1;
+        }
+        while (gap>0){
+            //插入排序
+            for(int i=gap;i<len;i++){
+                for (int j=i;j>gap-1&&list[j]<list[j-gap];j-=gap){
+                    swap(list,j,j-gap);
+                }
+            }
+            gap = (gap-1)/3;
+        }
     }
 
     /**
      * 堆排序
      * @param list
      */
-    public void heapSort(List<Integer> list){
+    public void heapSort(int[] list){
+        if(list==null||list.length==0){
+            return;
+        }
+        int len = list.length;
+        //构建大顶堆
+        for(int i=len/2-1;i>=0;i--){
+            adjustHeap(list,i,len);
+        }
+        for(int i=1;i<len;i++){
+            swap(list,0,len-i);
+            adjustHeap(list,0,len-i);
+        }
+    }
 
+    /**
+     * 调整堆
+     * @param list
+     * @param index
+     * @param len
+     */
+    private void adjustHeap(int[] list,int index,int len){
+        for(int i=2*index+1;i<len;i=2*i+1){
+            //寻找较大子节点
+            if(i<len-1&&list[i]<list[i+1]){
+                i++;
+            }
+            if(list[index]<list[i]){
+                swap(list,index,i);
+                index = i;
+            }
+            else {
+                break;
+            }
+        }
     }
 
     /**
@@ -152,8 +199,18 @@ public class Sort {
         sort.print(list1);
 
         int[] list2 = {2,4,6,8,2,3,5,1};
-        sort.insertSort(list2);
+        sort.selectSort(list2);
         System.out.print("选择排序：");
         sort.print(list2);
+
+        int[] list3 = {2,4,6,8,2,3,5,1};
+        sort.shellSort(list3);
+        System.out.print("希尔排序：");
+        sort.print(list3);
+
+        int[] list4 = {2,4,6,8,2,3,5,1};
+        sort.heapSort(list4);
+        System.out.print("堆排序：");
+        sort.print(list4);
     }
 }
