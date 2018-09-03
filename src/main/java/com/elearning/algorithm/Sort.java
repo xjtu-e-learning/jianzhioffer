@@ -61,8 +61,20 @@ public class Sort {
      * 选择排序
      * @param list
      */
-    public void selectSort(List<Integer> list){
-
+    public void selectSort(int[] list){
+        if(list==null||list.length==0){
+            return;
+        }
+        int len = list.length;
+        for(int i=0;i<len-1;i++){
+            int minIndex = i;
+            for(int j=i+1;j<len;j++){
+                if(list[minIndex]>list[j]){
+                    minIndex = j;
+                }
+            }
+            swap(list,i,minIndex);
+        }
     }
 
     /**
@@ -129,9 +141,19 @@ public class Sort {
     }
     public static void main(String[] args) {
         Sort sort = new Sort();
-        int[] list = {2,4,6,8,2,3,5,1};
-        //sort.bubbleSort(list);
-        sort.insertSort(list);
-        sort.print(list);
+        int[] list0 = {2,4,6,8,2,3,5,1};
+        sort.bubbleSort(list0);
+        System.out.print("冒泡排序：");
+        sort.print(list0);
+
+        int[] list1 = {2,4,6,8,2,3,5,1};
+        sort.insertSort(list1);
+        System.out.print("插入排序：");
+        sort.print(list1);
+
+        int[] list2 = {2,4,6,8,2,3,5,1};
+        sort.insertSort(list2);
+        System.out.print("选择排序：");
+        sort.print(list2);
     }
 }
