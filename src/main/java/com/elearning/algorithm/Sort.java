@@ -228,8 +228,39 @@ public class Sort {
      * 计数排序
      * @param list
      */
-    public void countSort(List<Integer> list){
-
+    public void countSort(int[] list){
+        if(list==null||list.length==0){
+            return;
+        }
+        int len = list.length;
+        //获取最大最小值
+        int min = list[0];
+        int max = list[0];
+        for(int i=1;i<len;i++){
+            if(list[i]<min){
+                min = list[i];
+            }
+            if(list[i]>max){
+                max = list[i];
+            }
+        }
+        //初始化次数统计数组
+        int[] frequencyList = new int[max-min+1];
+        for(int i=0;i<len;i++){
+            frequencyList[list[i]-min]++;
+        }
+        //累加
+        for(int i=1;i<frequencyList.length;i++){
+            frequencyList[i] += frequencyList[i-1];
+        }
+        int[] tmp = new int[len];
+        for(int i=len-1;i>=0;i--){
+            tmp[frequencyList[list[i]-min]-1] = list[i];
+            frequencyList[list[i]-min]--;
+        }
+        for(int i=0;i<len;i++){
+            list[i] = tmp[i];
+        }
     }
 
     /**
@@ -290,5 +321,10 @@ public class Sort {
         sort.mergeSort(list6);
         System.out.print("归并排序：");
         sort.print(list6);
+
+        int[] list7 = {2,4,6,8,2,3,5,1};
+        sort.countSort(list7);
+        System.out.print("计数排序：");
+        sort.print(list7);
     }
 }
