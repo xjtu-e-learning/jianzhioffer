@@ -185,8 +185,43 @@ public class Sort {
      * 归并排序
      * @param list
      */
-    public void mergeSort(List<Integer> list){
+    public void mergeSort(int[] list){
+        if(list==null||list.length==0){
+            return;
+        }
+        mergeSortCore(list,0,list.length-1);
+    }
 
+    private void mergeSortCore(int[] list,int beginIndex,int endIndex){
+        if(beginIndex!=endIndex){
+            int mid = (beginIndex+endIndex)/2;
+            mergeSortCore(list,beginIndex,mid);
+            mergeSortCore(list,mid+1,endIndex);
+            merge(list,beginIndex,mid,endIndex);
+        }
+    }
+    private void merge(int[] list,int beginIndex,int midIndex,int endIndex){
+        int[] tmp = new int[endIndex-beginIndex+1];
+        int left = beginIndex;
+        int right = midIndex+1;
+        int i=0;
+        while (left<=midIndex&&right<=endIndex){
+            if(list[left]<list[right]){
+                tmp[i++] = list[left++];
+            }
+            else {
+                tmp[i++] = list[right++];
+            }
+        }
+        while (left<=midIndex){
+            tmp[i++] = list[left++];
+        }
+        while (right<=endIndex){
+            tmp[i++] = list[right++];
+        }
+        for(int j=0;j<endIndex-beginIndex+1;j++){
+            list[beginIndex+j] = tmp[j];
+        }
     }
 
     /**
@@ -250,5 +285,10 @@ public class Sort {
         sort.quickSort(list5);
         System.out.print("快速排序：");
         sort.print(list5);
+
+        int[] list6 = {2,4,6,8,2,3,5,1};
+        sort.mergeSort(list6);
+        System.out.print("归并排序：");
+        sort.print(list6);
     }
 }
