@@ -267,16 +267,73 @@ public class Sort {
      * 桶排序
      * @param list
      */
-    public void bucketSort(List<Integer> list){
-
+    public void bucketSort(int[] list){
+        if(list==null||list.length==0){
+            return;
+        }
+        int len = list.length;
+        //获取最大最小值
+        int min = list[0];
+        int max = list[0];
+        for(int i=1;i<len;i++){
+            if(list[i]<min){
+                min = list[i];
+            }
+            if(list[i]>max){
+                max = list[i];
+            }
+        }
+        //初始化次数统计数组
+        int[] frequencyList = new int[max-min+1];
+        for(int i=0;i<len;i++){
+            frequencyList[list[i]-min]++;
+        }
+        int index = 0;
+        for(int i=0;i<frequencyList.length;i++){
+            while (frequencyList[i]!=0){
+                list[index++] = i+min;
+            }
+        }
     }
 
     /**
      * 基数排序
      * @param list
      */
-    public void cardinalitySort(List<Integer> list){
+    public void radixSort(int[] list){
+        // 指数。当对数组按各位进行排序时，exp=1；按十位进行排序时，exp=10；...
+        int exp;
+        // 数组a中的最大值
+        int max = list[1];
+        for(int i=1;i<list.length;i++){
+            if(max<list[i]){
+                max = list[i];
+            }
+        }
+        // 从个位开始，对数组a按"指数"进行排序
+        for (exp = 1; max/exp > 0; exp *= 10){
+            radixSortCore(list,exp);
+        }
+    }
 
+    private void radixSortCore(int[] list,int exp){
+        int len = list.length;
+        //初始化次数统计数组
+        int[] frequencyList = new int[10];
+        for(int i=0;i<len;i++){
+            frequencyList[(list[i]/exp)%10]++;
+        }
+        for (int i=1;i<10;i++){
+            frequencyList[i] += frequencyList[i-1];
+        }
+        int[] tmp = new int[len];
+        for(int i=len-1;i>=0;i--){
+            tmp[frequencyList[(list[i]/exp)%10]-1] = list[i];
+            frequencyList[(list[i]/exp)%10]--;
+        }
+        for(int i=0;i<len;i++){
+            list[i] = tmp[i];
+        }
     }
 
     public void print(int[] list){
@@ -326,5 +383,15 @@ public class Sort {
         sort.countSort(list7);
         System.out.print("计数排序：");
         sort.print(list7);
+
+        int[] list8 = {2,4,6,8,2,3,5,1};
+        sort.bubbleSort(list8);
+        System.out.print("桶排序：");
+        sort.print(list8);
+
+        int[] list9 = {2,4,6,8,2,3,5,1};
+        sort.radixSort(list9);
+        System.out.print("基数排序：");
+        sort.print(list9);
     }
 }
