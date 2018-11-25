@@ -1,4 +1,4 @@
-package src.main.java.com.elearning.chapter2.interviewquestion6_tree;
+package com.elearning.chapter2.interviewquestion6_tree;
 
   /**
   Definition for binary tree
