@@ -50,10 +50,8 @@ public class Solution {
         RandomListNode clonedHeadNode = headNode.next;
         RandomListNode node = headNode;
         RandomListNode clonedNode = clonedHeadNode;
-        if(node!=null){
-            node.next = clonedNode.next;
-            node = node.next;
-        }
+        node.next = clonedNode.next;
+        node = node.next;
         while (node!=null){
             clonedNode.next = node.next;
             clonedNode = clonedNode.next;
