@@ -1,6 +1,5 @@
 package com.elearning.chapter5.interviewquestion29;
 
-import org.omg.Messaging.SYNC_WITH_TRANSPORT;
 
 /**
  * 面试题29：数组中出现次数超过一半的数字
